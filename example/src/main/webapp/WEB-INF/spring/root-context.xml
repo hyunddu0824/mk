@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- DB Connection -->
+	<!-- DataSource -->
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/Oracle11g" />
+	</bean>
+	
+	<!-- Mybatis Setting -->
+	<!-- SqlSessionFactory는 데이터베이스와의 연결과 SQL의 실행에 대한 모든 것을 가진 가장 중요한 객체이다.
+		 - SqlSessionFactory를 생성해 주는 객체를 설정해 주어야 하는데 SqlSessionFactoryBean이라는 클래스이다. -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />		<!-- connection을 얻기 위함 -->
+		<property name="configLocation" value="classpath:config/mybatis-config.xml" />	<!-- 환경설정(설정파일의 위치(Location)에 s가 들어가지 않음.) 하나만 갖는다. -->
+		<property name="mapperLocations" value="classpath:query/*.xml" />	<!-- 위치 설정(Location에 s가 들어가야 함. 하나 이상.) -->
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>		<!-- 생성자 주입 -->
+	</bean>
+	
+	<!-- a PlatformTransactionManager is still required -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>	
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage">
+			<value>com.spring.**.**.dao</value>		<!-- mapper에 대한 내용을 사용 -->
+		</property>
+	</bean>
+</beans>
