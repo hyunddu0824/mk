@@ -8,7 +8,7 @@
 	<!-- DB Connection -->
 	<!-- DataSource -->
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="java:comp/env/jdbc/Oracle11g" />
+		<property name="jndiName" value="java:comp/env/moomin" />
 	</bean>
 	
 	<!-- Mybatis Setting -->

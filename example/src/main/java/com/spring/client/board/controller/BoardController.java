@@ -13,14 +13,15 @@ import com.spring.client.board.service.BoardService;
 import com.spring.client.board.vo.BoardVO;
 
 @Controller
+@RequestMapping(value="/board")
 public class BoardController {
 
 	Logger logger = Logger.getLogger(BoardController.class);
 	
-	@Autowired		//의존성 주입
+	@Autowired		//�쓽議댁꽦 二쇱엯
 	private BoardService boardService;
 	
-	//리스트 보기
+	//由ъ뒪�듃 蹂닿린
 	@RequestMapping(value="/boardList.do", method=RequestMethod.GET)
 	public String boardList(BoardVO bvo, Model model) {
 		

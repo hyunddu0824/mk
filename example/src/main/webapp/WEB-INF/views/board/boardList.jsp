@@ -41,12 +41,12 @@
 								<td>${baord.b_date }</td>
 							</tr>
 						</c:forEach>
-						<c:otherwise>
+					</c:when>
+					<c:otherwise>
 							<tr>
 								<td colspan="4" class="tac">등록된 게시물이 존재하지 않습니다.</td>
 							</tr>
-						</c:otherwise>
-					</c:when>
+					</c:otherwise>
 				</c:choose>
 			</tbody>
 		</table>	
