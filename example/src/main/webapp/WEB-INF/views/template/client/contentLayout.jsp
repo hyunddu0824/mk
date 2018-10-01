@@ -26,30 +26,14 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+
   </head>
-<!-- NAVBAR
-================================================== -->
-  <body>
- 	 <!-- 헤더 부분 -->
-     <!-- Fixed navbar -->
-    	<tiles:insertAttribute name="header" />
-    <!-- 헤저 끝 -->
-
-
-		<!-- 슬라이더 시작-->
-  		<tiles:insertAttribute name="main" />
- 
-		<!-- 슬라이더 끝 -->
-
 
 	
 	
     <!-- 내용 -->
     <div class="container">
 		<tiles:insertAttribute name="body" />
-      
     </div>
 
 	<!-- 풋터 시작 -->

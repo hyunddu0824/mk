@@ -13,6 +13,7 @@ import com.spring.client.board.service.BoardService;
 import com.spring.client.board.vo.BoardVO;
 
 @Controller
+@RequestMapping(value="/board")
 public class BoardController {
 
 	Logger logger = Logger.getLogger(BoardController.class);
