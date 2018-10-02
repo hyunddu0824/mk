@@ -23,4 +23,23 @@ public class BoardServiceImpl implements BoardService {
 		return myList;
 	}
 
+	@Override
+	public int boardInsert(BoardVO bvo) {
+		int result = 0;
+		try {
+			result = boardDao.boardInsert(bvo);
+		}catch(Exception e) {
+			e.printStackTrace();
+			result = 0;
+		}
+		return result;
+	}
+
+	@Override
+	public BoardVO boardDetail(BoardVO bvo) {
+		BoardVO detail = null;
+		detail = boardDao.boardDetail(bvo);
+		return detail;
+	}
+
 }
