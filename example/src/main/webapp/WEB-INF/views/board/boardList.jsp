@@ -18,8 +18,8 @@
 			var b_no = $(this).parents("tr").attr("data-num");
 			$("#b_no").val(b_no);
 			$("#detailForm").attr({
-				"method":get,
-				"action":"/board/boardDetail2.do"
+				"method":"get",
+				"action":"/board/boardDetail.do"
 			});
 			$("#detailForm").submit();
 		})

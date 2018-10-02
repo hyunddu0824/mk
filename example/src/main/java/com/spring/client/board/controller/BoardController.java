@@ -30,7 +30,6 @@ public class BoardController {
 		model.addAttribute("boardList", boardList);
 		
 		return "board/boardList";
-		
 	}
 
 	
@@ -44,7 +43,7 @@ public class BoardController {
 	
 	//글쓰기 구현하기
 	
-	public String boardInsert(BoardVO bvo, Model model,HttpServletRequest request) {
+	public String boardInsert(BoardVO bvo, Model model, HttpServletRequest request) {
 		logger.info("boardInsert 호출 성공");
 		
 		int result = 0;
@@ -74,15 +73,6 @@ public class BoardController {
 		model.addAttribute("detail", detail);
 		return "board/boardDetail";
 
-	}
-	@RequestMapping(value="boardInsert.do", method=RequestMethod.POST)
-	public String boardInsert(BoardVO bvo, Model model, HttpServletRequest request) {
-		logger.info("boardInsert 호출 성공");
-		
-		int result = 0;
-		String url = "";
-		
-		if(!bvo.get)
 	}
 	
 }
