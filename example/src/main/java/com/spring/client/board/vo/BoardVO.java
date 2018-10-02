@@ -1,5 +1,7 @@
 package com.spring.client.board.vo;
 
+import java.util.List;
+
 public class BoardVO {
 
 	private int b_no = 0;
@@ -8,7 +10,7 @@ public class BoardVO {
 	private String b_content = null;
 	private String b_name = null;
 	private String b_pwd = null;
-	
+	private List<ImageVO> image =null;
 	
 	public int getB_no() {
 		return b_no;
@@ -45,6 +47,12 @@ public class BoardVO {
 	}
 	public void setB_pwd(String b_pwd) {
 		this.b_pwd = b_pwd;
+	}
+	public List<ImageVO> getImage() {
+		return image;
+	}
+	public void setImage(List<ImageVO> image) {
+		this.image = image;
 	}
 	
 	

@@ -14,7 +14,15 @@
 <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		
+		$(".goDetail").click(function() {
+			var b_no = $(this).parents("tr").attr("data-num");
+			$("#b_no").val(b_no);
+			$("#detailForm").attr({
+				"method":get,
+				"action":"/board/boardDetail2.do"
+			});
+			$("#detailForm").submit();
+		})
 	})
 </script>
 </head>

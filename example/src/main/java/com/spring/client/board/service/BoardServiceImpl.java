@@ -40,6 +40,7 @@ public class BoardServiceImpl implements BoardService {
 		BoardVO detail = null;
 		detail = boardDao.boardDetail(bvo);
 		return detail;
+
 	}
 
 }

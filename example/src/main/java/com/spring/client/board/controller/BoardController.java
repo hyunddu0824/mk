@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,6 +32,7 @@ public class BoardController {
 		return "board/boardList";
 		
 	}
+
 	
 	//글쓰기 폼
 	@RequestMapping(value="writeForm.do")
@@ -73,8 +73,16 @@ public class BoardController {
 		
 		model.addAttribute("detail", detail);
 		return "board/boardDetail";
+
 	}
-	
-	/*public String boardInsert(BoardVO bvo, Model model, HttpServletRequest request)*/
+	@RequestMapping(value="boardInsert.do", method=RequestMethod.POST)
+	public String boardInsert(BoardVO bvo, Model model, HttpServletRequest request) {
+		logger.info("boardInsert 호출 성공");
+		
+		int result = 0;
+		String url = "";
+		
+		if(!bvo.get)
+	}
 	
 }
