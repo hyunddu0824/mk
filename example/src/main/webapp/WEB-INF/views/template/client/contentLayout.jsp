@@ -46,15 +46,10 @@
 	</div>
 
 
-	<footer class="footer">
-		<tiles:insertAttribute name="footer"/>
-	</footer>
-
-	
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
-	<script src="/resources/include/dist/js/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script
-		src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
+	<!-- 풋터 시작 -->
+ 		<tiles:insertAttribute name="footer" />
+    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>

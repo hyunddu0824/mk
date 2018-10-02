@@ -2,6 +2,8 @@ package com.spring.client.board.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +23,6 @@ public class BoardController {
 	@Autowired		//�쓽議댁꽦 二쇱엯
 	private BoardService boardService;
 	
-	//由ъ뒪�듃 蹂닿린
 	@RequestMapping(value="/boardList.do", method=RequestMethod.GET)
 	public String boardList(BoardVO bvo, Model model) {
 		
@@ -31,9 +32,47 @@ public class BoardController {
 		return "board/boardList";
 		
 	}
-	@RequestMapping(value="/boardDetail2.do")
-	public String boardDetail2(BoardVO bvo ,Model moModel) {
-		List<BoardVO> board = boardService.boardDetail2(bvo);
-		return "board/boardDetail2";
+
+	
+	//글쓰기 폼
+	@RequestMapping(value="writeForm.do")
+	public String writeForm() {
+		logger.info("writeForm 호출 성공");
+		
+		return "board/writeForm";
+	}
+	
+	//글쓰기 구현하기
+	
+	public String boardInsert(BoardVO bvo, Model model,HttpServletRequest request) {
+		logger.info("boardInsert 호출 성공");
+		
+		int result = 0;
+		String url = "";
+		
+		result = boardService.boardInsert(bvo);
+		
+		if(result == 1 ) {
+			url = "/board/boardList.do";
+		}else {
+			model.addAttribute("code", 1);
+			url = "board/writeForm.do";
+		}
+		return "redirect:"+url;
+		
+	}
+	
+	//글 상세 보기
+	@RequestMapping(value = "boardDetail.do", method=RequestMethod.GET)
+	public String boardDetail(BoardVO bvo, Model model) {
+		logger.info("boardDetail 호출 성공");
+		logger.info("b_no =" + bvo.getB_no());
+		
+		BoardVO detail = new BoardVO();
+		detail = boardService.boardDetail(bvo);
+		
+		model.addAttribute("detail", detail);
+		return "board/boardDetail";
+
 	}
 }

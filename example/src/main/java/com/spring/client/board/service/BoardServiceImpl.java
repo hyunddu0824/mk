@@ -24,10 +24,23 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> boardDetail2(BoardVO bvo) {
-		// TODO Auto-generated method stub
-		List<BoardVO> myList = boardDao.boardDetail2(bvo);
-		return null;
+	public int boardInsert(BoardVO bvo) {
+		int result = 0;
+		try {
+			result = boardDao.boardInsert(bvo);
+		}catch(Exception e) {
+			e.printStackTrace();
+			result = 0;
+		}
+		return result;
+	}
+
+	@Override
+	public BoardVO boardDetail(BoardVO bvo) {
+		BoardVO detail = null;
+		detail = boardDao.boardDetail(bvo);
+		return detail;
+
 	}
 
 }
