@@ -8,4 +8,6 @@ public interface BoardDao {
 
 	public List<BoardVO> boardList(BoardVO bvo);
 
+	public List<BoardVO> boardDetail2(BoardVO bvo);
+
 }

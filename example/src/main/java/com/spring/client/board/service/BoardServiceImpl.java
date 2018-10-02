@@ -23,4 +23,11 @@ public class BoardServiceImpl implements BoardService {
 		return myList;
 	}
 
+	@Override
+	public List<BoardVO> boardDetail2(BoardVO bvo) {
+		// TODO Auto-generated method stub
+		List<BoardVO> myList = boardDao.boardDetail2(bvo);
+		return null;
+	}
+
 }

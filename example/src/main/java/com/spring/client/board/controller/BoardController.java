@@ -31,4 +31,9 @@ public class BoardController {
 		return "board/boardList";
 		
 	}
+	@RequestMapping(value="/boardDetail2.do")
+	public String boardDetail2(BoardVO bvo ,Model moModel) {
+		List<BoardVO> board = boardService.boardDetail2(bvo);
+		return "board/boardDetail2";
+	}
 }
